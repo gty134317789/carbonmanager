@@ -8,6 +8,7 @@ import com.gty.service.ProductionService;
 import com.gty.entity.Production;
 import com.gty.vo.PageVO;
 import com.gty.vo.ProductionVO;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,6 +43,20 @@ public class ProductionController {
         return  this.productionService.save(production);
     }
 
+    @GetMapping("/findById/{id}")
+    public ProductionVO findById(@PathVariable("id") Integer id){
+        return this.productionService.findVOById(id);
+    }
+
+    @PutMapping("/update")
+    public boolean update(@RequestBody Production production){
+        return this.productionService.updateById(production);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public  boolean delete(@PathVariable("id") Integer id){
+        return this.productionService.removeById(id);
+    }
 
 }
 

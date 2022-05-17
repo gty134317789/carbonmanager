@@ -9,7 +9,7 @@
 
         <el-menu router>
 
-          <el-submenu :index="0">
+          <el-submenu :index=String(0)>
             <template slot="title"><i class="el-icon-goods"></i>企业管理</template>
 
             <el-menu-item index="/CompanyManager">
@@ -25,7 +25,7 @@
             </el-menu-item>
           </el-submenu>
 
-          <el-submenu :index="1">
+          <el-submenu :index=String(1)>
             <template slot="title"><i class="el-icon-finished"></i>生产项目管理</template>
             <el-menu-item index="/productmanager">
               <div style="position: relative;left: 20px;">
@@ -40,7 +40,7 @@
             </el-menu-item>
           </el-submenu>
 
-          <el-submenu :index="2">
+          <el-submenu :index=String(2)>
             <template slot="title"><i class="el-icon-finished"></i>用户管理</template>
             <el-menu-item index="/usermanager">
               <div style="position: relative;left: 20px;">

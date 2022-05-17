@@ -37,7 +37,7 @@
         width="150">
       </el-table-column>
       <el-table-column label="操作">
-        <template slot-scope="scope">
+        <template slot-scope="text,record">
           <el-button
             size="mini"
             @click="edit(scope.row)">编辑</el-button>
@@ -88,7 +88,9 @@ export default {
       })
     },
     edit(rows){
+      console.log(rows.id)
       this.$router.push('/update?id='+rows.id)
+      console.log(rows.id)
     },
     del(rows){
       const _this = this

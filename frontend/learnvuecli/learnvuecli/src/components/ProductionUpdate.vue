@@ -2,7 +2,7 @@
   <div style="margin-top: 60px;margin-left:80px;width: 600px" >
     <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="120px" class="demo-ruleForm">
 
-      <el-form-item label="生产编号" prop="productNum">
+      <el-form-item label="生产编号" prop="productNum" >
         <el-input   v-model="ruleForm.productNum" ></el-input>
       </el-form-item>
 
@@ -27,7 +27,7 @@
           value-format="yyyy-MM-dd">
           style="200px"
         </el-date-picker
-      >
+        >
       </el-form-item>
 
       <el-form-item label="生产结束日期" prop="endDate"
@@ -79,7 +79,7 @@
 
 
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
+        <el-button type="primary" @click="submitForm('ruleForm')">立即更新</el-button>
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
@@ -87,7 +87,6 @@
 </template>
 
 <script>
-import  Qs from 'qs'
 const axios = require('axios');
 export default {
   name: "Add",
@@ -117,6 +116,14 @@ export default {
       }
     };
   },
+  created() {
+      let _this=this
+      axios.get('http://localhost:8181/production/findById/'+this.$route.query.id).then(function (resp){
+          console.log(resp.data)
+          _this.ruleForm=resp.data
+          console.log(_this.ruleForm)
+    })
+  },
 
   methods: {
     submitForm(formName) {
@@ -124,10 +131,10 @@ export default {
       console.log(_this.ruleForm)
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          axios.post('http://localhost:8181/production/save',_this.ruleForm).then(function (resp) {
+          axios.put('http://localhost:8181/production/update',_this.ruleForm).then(function (resp) {
             console.log(resp.data)
             if(resp.data){
-              _this.$alert('【'+_this.ruleForm.productNum+'】添加成功', '', {
+              _this.$alert('【'+_this.ruleForm.productNum+'】更新成功', '', {
                 confirmButtonText: '确定',
                 callback: action => {
                   _this.$router.push('/productmanager')

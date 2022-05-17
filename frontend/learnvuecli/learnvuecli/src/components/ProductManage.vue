@@ -1,8 +1,7 @@
 <template>
     <div style="margin-top: 60px;margin-left:80px;border: 0px solid red;" >
-
         <el-table
-                :data="tableData"
+                :data="tableData.filter(data => !search || data.productName.toLowerCase().includes(search.toLowerCase()))"
                 border
                 stripe
                 style="width: 100%">
@@ -14,7 +13,7 @@
             <el-table-column
                     prop="companyCode"
                     label="生产公司代码"
-                    width="100">
+                    width="120">
             </el-table-column>
             <el-table-column
                     prop="productName"
@@ -24,22 +23,22 @@
             <el-table-column
                     prop="beginDate"
                     label="生产开始日期"
-                    width="100">
+                    width="120">
             </el-table-column>
             <el-table-column
                     prop="endDate"
                     label="生产结束日期"
-                    width="100">
+                    width="120">
             </el-table-column>
             <el-table-column
                     prop="cost"
                     label="生产成本(元)"
-                    width="100">
+                    width="120">
             </el-table-column>
             <el-table-column
                     prop="carbonEmission"
                     label="总碳排放量(吨)"
-                    width="100">
+                    width="120">
             </el-table-column>
             <el-table-column
                     prop="yield"
@@ -51,7 +50,16 @@
               label="备注"
               width="200">
             </el-table-column>
+
             <el-table-column label="操作">
+                align="right">
+                <template slot="header" slot-scope="scope">
+                  <el-input
+                    v-model="search"
+                    size="mini"
+                    placeholder="输入关键字搜索"/>
+                </template>
+
                 <template slot-scope="scope">
                     <el-button
                             size="mini"
@@ -81,6 +89,7 @@ const axios = require('axios');
         created() {
           const _this = this
           axios.get('http://localhost:8181/production/list/1/'+this.pageSize).then(function (resp) {
+            console.log(resp.data)
             _this.tableData=resp.data.data
             _this.total=resp.data.total
           })
@@ -88,11 +97,14 @@ const axios = require('axios');
         data(){
             return{
                 tableData: '',
-                pageSize: 5,
+                pageSize: 10,
                 total: 100,
-                currentPage: 1
+                currentPage: 1,
+                search:'',
             }
+
         },
+
         methods:{
             page(currentPage){
               const _this = this
@@ -101,19 +113,22 @@ const axios = require('axios');
                 _this.total=resp.data.total
                 })
             },
-            edit(rows){
-                this.$router.push('/update?id='+rows.id)
+            edit(row){
+                // console.log(row)
+                // console.log(row.productNum)
+                this.$router.push('/updateproduction?id='+row.productNum)
             },
             del(rows){
+                //console.log(rows)
                 const _this = this
-                this.$confirm('确认删除【'+rows.name+'】吗？', '提示', {
+                this.$confirm('确认删除【生产编号'+rows.productNum+'】吗？', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(() => {
-                    axios.delete('http://localhost:8181/product/delete/'+rows.id).then(function (resp) {
+                    axios.delete('http://localhost:8181/production/delete/'+rows.productNum).then(function (resp) {
                         if(resp.data){
-                            _this.$alert('【'+rows.name+'】已删除', '', {
+                            _this.$alert('【生产编号'+rows.productNum+'】已删除', '', {
                                 confirmButtonText: '确定',
                                 callback: action => {
                                     location.reload()

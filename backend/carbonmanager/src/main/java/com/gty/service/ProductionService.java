@@ -18,4 +18,7 @@ import java.util.List;
  */
 public interface ProductionService extends IService<Production> {
     public PageVO voList(Integer page, Integer size);
+    public ProductionVO findVOById(Integer id);
+
+
 }

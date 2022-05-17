@@ -25,41 +25,41 @@ import lombok.EqualsAndHashCode;
 
     private static final long serialVersionUID=1L;
 
-    @TableId("ProductNum")
-    @JsonProperty(value = "ProductNum")
-    private String ProductNum;
+    @TableId("productNum")
+    @JsonProperty(value = "productNum")
+    private String  productNum;
 
-    @TableField("CompanyCode")
-    @JsonProperty(value = "CompanyCode")
-    private String CompanyCode;
+    @TableField("companyCode")
+    @JsonProperty(value = "companyCode")
+    private String companyCode;
 
-    @TableField("ProductName")
-    @JsonProperty(value = "ProductName")
-    private String ProductName;
+    @TableField("productName")
+    @JsonProperty(value = "productName")
+    private String productName;
 
-    @TableField("BeginDate")
-    @JsonProperty(value = "BeginDate")
-    private LocalDate BeginDate;
+    @TableField("beginDate")
+    @JsonProperty(value = "beginDate")
+    private LocalDate beginDate;
 
-    @TableField("EndDate")
-    @JsonProperty(value = "EndDate")
-    private LocalDate EndDate;
+    @TableField("endDate")
+    @JsonProperty(value = "endDate")
+    private LocalDate endDate;
 
-    @TableField("Cost")
-    @JsonProperty(value = "Cost")
-    private Double Cost;
+    @TableField("cost")
+    @JsonProperty(value = "cost")
+    private Double cost;
 
-    @TableField("CarbonEmission")
-    @JsonProperty(value = "CarbonEmission")
-    private Double CarbonEmission;
+    @TableField("carbonEmission")
+    @JsonProperty(value = "carbonEmission")
+    private Double carbonEmission;
 
-    @TableField("Yield")
-    @JsonProperty(value = "Yield")
-    private Double Yield;
+    @TableField("yield")
+    @JsonProperty(value = "yield")
+    private Double yield;
 
-    @TableField("Notes")
-    @JsonProperty(value = "Notes")
-    private String Notes;
+    @TableField("notes")
+    @JsonProperty(value = "notes")
+    private String notes;
 
 
 

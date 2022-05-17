@@ -10,6 +10,7 @@ import com.gty.vo.ProductionVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +23,14 @@ import java.util.List;
  * @author GTY
  * @since 2022-05-12
  */
+
 @Service
+@Transactional
 public class ProductionServiceImpl extends ServiceImpl<ProductionMapper, Production> implements ProductionService {
 
     @Autowired
     private ProductionMapper productionMapper;
+    private Object production;
 
     @Override
     public PageVO voList(Integer page, Integer size){
@@ -45,5 +49,17 @@ public class ProductionServiceImpl extends ServiceImpl<ProductionMapper, Product
         pageVO.setTotal(resultPage.getTotal());
         return pageVO;
     }
+
+
+    @Override
+    public ProductionVO findVOById(Integer id) {
+        Production production=this.productionMapper.selectById(id);
+        ProductionVO productionVO=new ProductionVO();
+        BeanUtils.copyProperties(production,productionVO);
+        return productionVO;
+    }
+
+
+
 
 }

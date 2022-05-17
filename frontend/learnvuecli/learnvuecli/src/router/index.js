@@ -7,9 +7,9 @@ import Addcompany from "../components/Addcompany"
 import Bar from "../components/Bar"
 import Pie from "../components/Pie"
 import ProductManage from "../components/ProductManage"
-import Update from "../components/Update";
 import UserManage from"../components/UserManager"
 import Addproduction from "../components/Addproduction";
+import ProductionUpdate from "../components/ProductionUpdate";
 
 Vue.use(Router)
 
@@ -26,7 +26,7 @@ export default new Router({
         {path: '/bar', name: 'bar', component: Bar},
         {path: '/pie', name: 'pie', component: Pie},
         {path: '/productmanager', name: '生产项目管理', component: ProductManage},
-        {path: '/update', name: 'update', component: Update},
+        {path: '/updateproduction', name: '更新生产项目', component: ProductionUpdate},
         {path: '/usermanager', name: '修改用户信息', component:UserManage},
       ]
     },
