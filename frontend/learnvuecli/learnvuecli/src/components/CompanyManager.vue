@@ -2,7 +2,7 @@
   <div style="margin-top: 60px;margin-left:80px;border: 0px solid red;" >
 
     <el-table
-      :data="tableData"
+      :data="tableData.filter(data => !search || data.companyCode.toLowerCase().includes(search.toLowerCase()))"
       border
       stripe
       style="width: 100%">
@@ -36,8 +36,17 @@
         label="碳排放是否达标"
         width="150">
       </el-table-column>
-      <el-table-column label="操作">
-        <template slot-scope="text,record">
+
+      <el-table-column label="操作"
+                       align="right">
+        <template slot="header" slot-scope="scope">
+          <el-input
+            v-model="search"
+            size="mini"
+            placeholder="输入关键字搜索"/>
+        </template>
+
+        <template slot-scope="scope">
           <el-button
             size="mini"
             @click="edit(scope.row)">编辑</el-button>
@@ -47,6 +56,7 @@
             @click="del(scope.row)">删除</el-button>
         </template>
       </el-table-column>
+
     </el-table>
     <el-pagination style="margin-top: 20px;float: right"
                    background
@@ -62,12 +72,12 @@
 <script>
 const axios = require('axios');
 export default {
-  name: "ProductManage",
+  name: "CompanyManage",
   created() {
     const _this = this
-    axios.get('http://localhost:8181/company/List').then(function (resp) {
-      console.log(resp)
-      _this.tableData = resp.data
+    axios.get('http://localhost:8181/company/list/1/'+this.pageSize).then(function (resp) {
+      console.log(resp.data)
+      _this.tableData = resp.data.data
       _this.total = resp.data.total
     })
   },
@@ -76,32 +86,33 @@ export default {
       tableData: '',
       pageSize: 5,
       total: 100,
-      currentPage: 1
+      currentPage: 1,
+      search:'',
     }
   },
   methods:{
     page(currentPage){
       const _this = this
-      axios.get('http://localhost:8181/company/List/'+currentPage+'/'+this.pageSize).then(function (resp) {
+      axios.get('http://localhost:8181/company/list/'+currentPage+'/'+this.pageSize).then(function (resp) {
         _this.tableData = resp.data.data
         _this.total = resp.data.total
       })
     },
-    edit(rows){
-      console.log(rows.id)
-      this.$router.push('/update?id='+rows.id)
-      console.log(rows.id)
+    edit(row){
+      //console.log(rows.id)
+      this.$router.push('/updatecompany?id='+row.companyCode)
+
     },
     del(rows){
       const _this = this
-      this.$confirm('确认删除【'+rows.name+'】吗？', '提示', {
+      this.$confirm('确认删除【'+rows.companyCode+'】吗？', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        axios.delete('http://localhost:8181/product/delete/'+rows.id).then(function (resp) {
+        axios.delete('http://localhost:8181/company/delete/'+rows.companyCode).then(function (resp) {
           if(resp.data){
-            _this.$alert('【'+rows.name+'】已删除', '', {
+            _this.$alert('【'+rows.companyCode+'】已删除', '', {
               confirmButtonText: '确定',
               callback: action => {
                 location.reload()

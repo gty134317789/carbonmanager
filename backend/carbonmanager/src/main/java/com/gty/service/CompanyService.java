@@ -2,6 +2,8 @@ package com.gty.service;
 
 import com.gty.entity.Company;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.gty.vo.CompanyPageVO;
+import com.gty.vo.CompanyVO;
 
 /**
  * <p>
@@ -12,5 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-05-12
  */
 public interface CompanyService extends IService<Company> {
+    public CompanyPageVO voList(Integer page, Integer size);
+    public CompanyVO findVOById(Integer id);
 
 }

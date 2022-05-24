@@ -51,7 +51,7 @@
               width="200">
             </el-table-column>
 
-            <el-table-column label="操作">
+            <el-table-column label="操作"
                 align="right">
                 <template slot="header" slot-scope="scope">
                   <el-input
@@ -70,6 +70,7 @@
                             @click="del(scope.row)">删除</el-button>
                 </template>
             </el-table-column>
+
         </el-table>
         <el-pagination style="margin-top: 20px;float: right"
                        background
@@ -97,7 +98,7 @@ const axios = require('axios');
         data(){
             return{
                 tableData: '',
-                pageSize: 10,
+                pageSize: 5,
                 total: 100,
                 currentPage: 1,
                 search:'',

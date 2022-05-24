@@ -10,7 +10,7 @@
         <el-menu router>
 
           <el-submenu :index=String(0)>
-            <template slot="title"><i class="el-icon-goods"></i>企业管理</template>
+            <template slot="title"><i class="el-icon-s-home"></i>企业管理</template>
 
             <el-menu-item index="/CompanyManager">
               <div style="position: relative;left: 20px;">
@@ -26,7 +26,7 @@
           </el-submenu>
 
           <el-submenu :index=String(1)>
-            <template slot="title"><i class="el-icon-finished"></i>生产项目管理</template>
+            <template slot="title"><i class="el-icon-s-tools"></i>生产项目管理</template>
             <el-menu-item index="/productmanager">
               <div style="position: relative;left: 20px;">
                 <i class="el-icon-s-data"></i>现有生产信息
@@ -35,27 +35,35 @@
 
             <el-menu-item index="/addproduction">
               <div style="position: relative;left: 20px;">
-                <i class="el-icon-s-marketing"></i>添加生产项目
+                <i class="el-icon-circle-plus"></i>添加生产项目
               </div>
             </el-menu-item>
           </el-submenu>
 
           <el-submenu :index=String(2)>
-            <template slot="title"><i class="el-icon-finished"></i>用户管理</template>
+            <template slot="title"><i class="el-icon-user-solid"></i>用户管理</template>
             <el-menu-item index="/usermanager">
               <div style="position: relative;left: 20px;">
-                <i class="el-icon-s-data"></i>修改用户信息
+                <i class="el-icon-s-data"></i>管理用户信息
               </div>
             </el-menu-item>
 
-            <el-menu-item index="/system">
-              <div style="position: relative;left: 20px;">
-                <i class="el-icon-s-data"></i>退出系统
-              </div>
-            </el-menu-item>
+              <el-menu-item index="/adduser">
+                <div style="position: relative;left: 20px;">
+                  <i class="el-icon-circle-plus"></i>添加用户
+                </div>
+              </el-menu-item>
+
           </el-submenu>
 
+            <el-menu-item index="/login">
+              <div style="position: relative;left: 20px;">
+                <i class="el-icon-switch-button"></i>退出登录
+              </div>
+            </el-menu-item>
+
         </el-menu>
+
 
       </el-aside>
 
@@ -78,14 +86,12 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-import footer from "@/components/footer.vue";
 
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
-    footer
+    HelloWorld
   }
 }
 </script>

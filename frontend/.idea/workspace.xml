@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53923355-6fbb-41e6-b5fb-1f80de911228" name="Changes" comment="" />
+    <list default="true" id="53923355-6fbb-41e6-b5fb-1f80de911228" name="Changes" comment="Changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,8 +10,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="HTML File" />
+        <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -43,13 +44,16 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\CarbonManager\carbonmanager\frontend\learnvuecli\learnvuecli\plugins" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\CarbonManager\carbonmanager\frontend\learnvuecli\learnvuecli\src\components" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -69,6 +73,12 @@
       <workItem from="1652679842742" duration="4919000" />
       <workItem from="1652752006975" duration="1445000" />
       <workItem from="1652770462167" duration="15108000" />
+      <workItem from="1652835270518" duration="1074000" />
+      <workItem from="1652839312018" duration="609000" />
+      <workItem from="1653012279896" duration="13796000" />
+      <workItem from="1653284100245" duration="6157000" />
+      <workItem from="1653369861762" duration="1048000" />
+      <workItem from="1653371060100" duration="4984000" />
     </task>
     <servers />
   </component>

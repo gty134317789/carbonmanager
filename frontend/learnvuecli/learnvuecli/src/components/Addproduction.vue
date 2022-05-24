@@ -87,10 +87,9 @@
 </template>
 
 <script>
-import  Qs from 'qs'
 const axios = require('axios');
 export default {
-  name: "Add",
+  name: "Addproduction",
   data() {
     return {
       ruleForm: {

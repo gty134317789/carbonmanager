@@ -3,6 +3,9 @@ package com.gty.entity;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -20,20 +23,26 @@ import lombok.EqualsAndHashCode;
 
     private static final long serialVersionUID=1L;
 
-      @TableId("ManagerID")
-      private String ManagerID;
 
-    @TableField("ManagerName")
-    private String ManagerName;
+    @TableId("managerid")
+    @JsonProperty(value = "managerid")
+    private String  managerid;
 
-    @TableField("ManagerDepartment")
-    private String ManagerDepartment;
+    @TableField("managername")
+    @JsonProperty(value = "managername")
+    private String managername;
 
-    @TableField("ManagerPhone")
-    private String ManagerPhone;
+    @TableField("managerdepartment")
+    @JsonProperty(value = "managerdepartment")
+    private String managerdepartment;
 
-    @TableField("ManagerFunds")
-    private Double ManagerFunds;
+    @TableField("managerphone")
+    @JsonProperty(value = "managerphone")
+    private String managerphone;
+
+    @TableField("managerfunds")
+    @JsonProperty(value = "managerfundse")
+    private Double managerfunds;
 
 
 }

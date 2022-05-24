@@ -3,6 +3,8 @@ package com.gty.entity;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -20,23 +22,29 @@ import lombok.EqualsAndHashCode;
 
     private static final long serialVersionUID=1L;
 
-      @TableId("CompanyCode")
-      private String CompanyCode;
+    @TableId("companyCode")
+    @JsonProperty(value = "companyCode")
+    private String companyCode;
 
-    @TableField("CompanyManager")
-    private String CompanyManager;
+    @TableField("companyManager")
+    @JsonProperty(value = "companyManager")
+    private String companyManager;
 
-    @TableField("CompanyAddress")
-    private String CompanyAddress;
+    @TableField("companyAddress")
+    @JsonProperty(value = "companyAddress")
+    private String companyAddress;
 
-    @TableField("CompanyIndustry")
-    private String CompanyIndustry;
+    @TableField("companyIndustry")
+    @JsonProperty(value = "companyIndustry")
+    private String companyIndustry;
 
-    @TableField("CompanyPhone")
-    private String CompanyPhone;
+    @TableField("companyPhone")
+    @JsonProperty(value = "companyPhone")
+    private String companyPhone;
 
-    @TableField("IsUpToStandard")
-    private String IsUpToStandard;
+    @TableField("isUpToStandard")
+    @JsonProperty(value = "isUpToStandard")
+    private String isUpToStandard;
 
 
 }

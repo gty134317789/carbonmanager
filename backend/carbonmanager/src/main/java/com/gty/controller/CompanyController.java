@@ -2,14 +2,10 @@ package com.gty.controller;
 
 import com.gty.service.CompanyService;
 import com.gty.entity.Company;
+import com.gty.vo.CompanyPageVO;
+import com.gty.vo.CompanyVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -25,10 +21,35 @@ public class CompanyController {
 
     @Autowired
     private CompanyService companyService;
-    @GetMapping("/List")
-    public List<Company> list(){
-        return this.companyService.list();
+
+    @GetMapping("/list/{page}/{size}")
+    public CompanyPageVO list(
+            @PathVariable("page") Integer page,
+            @PathVariable("size") Integer size
+    ){
+        return this.companyService.voList(page,size);
     }
+
+    @PostMapping("/save")
+    public boolean save(@RequestBody Company company){
+        return  this.companyService.save(company);
+    }
+
+    @GetMapping("/findById/{id}")
+    public CompanyVO findById(@PathVariable("id") Integer id){
+        return this.companyService.findVOById(id);
+    }
+
+    @PutMapping("/update")
+    public boolean update(@RequestBody Company company){
+        return this.companyService.updateById(company);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public  boolean delete(@PathVariable("id") Integer id){
+        return this.companyService.removeById(id);
+    }
+
 
 }
 
