@@ -120,10 +120,16 @@ export default {
   methods: {
     submitForm(formName) {
       let _this = this
+      // _this.$alert('公司代码不存在，请先添加企业', '', {
+      //   confirmButtonText: '确定',
+      //   callback: action => {
+      //     _this.$router.push('/productmanager')
+      //   }
+      // });
       console.log(_this.ruleForm)
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          axios.post('http://localhost:8181/production/save',_this.ruleForm).then(function (resp) {
+          axios.post('http://42.192.207.238:8181/production/save',_this.ruleForm).then(function (resp) {
             console.log(resp.data)
             if(resp.data){
               _this.$alert('【'+_this.ruleForm.productNum+'】添加成功', '', {

@@ -40,11 +40,12 @@
             </el-menu-item>
           </el-submenu>
 
+
           <el-submenu :index=String(2)>
             <template slot="title"><i class="el-icon-user-solid"></i>用户管理</template>
             <el-menu-item index="/usermanager">
               <div style="position: relative;left: 20px;">
-                <i class="el-icon-s-data"></i>管理用户信息
+                <i class="el-icon-s-data"></i>部门人员信息
               </div>
             </el-menu-item>
 
@@ -53,8 +54,19 @@
                   <i class="el-icon-circle-plus"></i>添加用户
                 </div>
               </el-menu-item>
-
           </el-submenu>
+
+          <el-menu-item index="/help">
+            <div style="position: relative;left: 20px;">
+              <i class="el-icon-question"></i>帮助
+            </div>
+          </el-menu-item>
+
+          <el-menu-item index="/print">
+            <div style="position: relative;left: 20px;">
+              <i class="el-icon-printer"></i>打印
+            </div>
+          </el-menu-item>
 
             <el-menu-item index="/login">
               <div style="position: relative;left: 20px;">
@@ -70,7 +82,7 @@
       <el-container>
         <el-main>
           <el-breadcrumb separator-class="el-icon-arrow-right">
-            <el-breadcrumb-item :to="{ path: '/update' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item v-text="this.$router.currentRoute.name"></el-breadcrumb-item>
           </el-breadcrumb>
           <router-view></router-view>
@@ -106,7 +118,7 @@ export default {
 }
 
 .el-header {
-  background-color: #20a0ff;
+  background-color: #095db9;
   color: #333;
   text-align: center;
   display: flex;
@@ -125,7 +137,7 @@ export default {
 }
 
 .el-footer {
-  background-color: #ea7e53;
+  background-color: #ff6e20;
   color: #fff;
   font-size: 22px;
   line-height: 60px;

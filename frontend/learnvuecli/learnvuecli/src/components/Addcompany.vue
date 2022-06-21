@@ -80,9 +80,15 @@ const axios = require('axios');
         methods: {
             submitForm(formName) {
                 let _this = this
+              // _this.$alert('企业已存在，请重新添加', '', {
+              //   confirmButtonText: '确定',
+              //   callback: action => {
+              //     _this.$router.push('/productmanager')
+              //   }
+              // });
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        axios.post('http://localhost:8181/company/save',_this.ruleForm).then(function (resp) {
+                        axios.post('http://42.192.207.238:8181/company/save',_this.ruleForm).then(function (resp) {
                           console.log(resp.data)
                             if(resp.data){
                                 _this.$alert('【'+_this.ruleForm.companyCode+'】添加成功', '', {

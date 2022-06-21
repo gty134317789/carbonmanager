@@ -12,7 +12,7 @@
             </el-table-column>
             <el-table-column
                     prop="companyCode"
-                    label="生产公司代码"
+                    label="生产企业代码"
                     width="120">
             </el-table-column>
             <el-table-column
@@ -89,7 +89,7 @@ const axios = require('axios');
         name: "ProductManage",
         created() {
           const _this = this
-          axios.get('http://localhost:8181/production/list/1/'+this.pageSize).then(function (resp) {
+          axios.get('http://42.192.207.238:8181/production/list/1/'+this.pageSize).then(function (resp) {
             console.log(resp.data)
             _this.tableData=resp.data.data
             _this.total=resp.data.total
@@ -109,7 +109,7 @@ const axios = require('axios');
         methods:{
             page(currentPage){
               const _this = this
-              axios.get('http://localhost:8181/production/list/'+currentPage+'/'+this.pageSize).then(function (resp) {
+              axios.get('http://42.192.207.238:8181/production/list/'+currentPage+'/'+this.pageSize).then(function (resp) {
                 _this.tableData=resp.data.data
                 _this.total=resp.data.total
                 })
@@ -127,7 +127,7 @@ const axios = require('axios');
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(() => {
-                    axios.delete('http://localhost:8181/production/delete/'+rows.productNum).then(function (resp) {
+                    axios.delete('http://42.192.207.238:8181/production/delete/'+rows.productNum).then(function (resp) {
                         if(resp.data){
                             _this.$alert('【生产编号'+rows.productNum+'】已删除', '', {
                                 confirmButtonText: '确定',

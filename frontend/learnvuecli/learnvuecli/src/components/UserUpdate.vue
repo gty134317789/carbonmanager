@@ -66,7 +66,7 @@ export default {
   },
   created() {
     let _this=this
-    axios.get('http://localhost:8181/manager/findById/'+this.$route.query.id).then(function (resp){
+    axios.get('http://42.192.207.238:8181/manager/findById/'+this.$route.query.id).then(function (resp){
       console.log(resp.data)
       _this.ruleForm=resp.data
       console.log(_this.ruleForm)
@@ -77,7 +77,7 @@ export default {
       let _this = this
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          axios.put('http://localhost:8181/manager/update',_this.ruleForm).then(function (resp) {
+          axios.put('http://42.192.207.238:8181/manager/update',_this.ruleForm).then(function (resp) {
             console.log(resp.data)
             if(resp.data){
               _this.$alert('【'+_this.ruleForm.managerid+'】更新成功', '', {

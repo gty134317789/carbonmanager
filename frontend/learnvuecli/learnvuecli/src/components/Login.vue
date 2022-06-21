@@ -1,6 +1,6 @@
 
 <template>
-  <div class="login-container">
+  <div  class="login-container" >
 
     <el-form
       :model="ruleForm2"
@@ -20,6 +20,8 @@
           placeholder="用户名"
         ></el-input>
       </el-form-item>
+
+
       <el-form-item prop="password">
         <el-input
           type="password"
@@ -29,10 +31,10 @@
         ></el-input>
       </el-form-item>
       <el-form-item style="width: 100%">
-        <el-button type="primary" style="width: 100%" @click="handleSubmit" :loading="logining">登录</el-button>
+        <el-button type="primary"  plain style="width: 100%" @click="handleSubmit" :loading="logining">登录</el-button>
       </el-form-item>
       <el-form-item style="width: 100%">
-        <el-button type="primary" style="width: 100%" @click="handleSubmit" :loading="logining">注册</el-button>
+        <el-button type="primary"   plain style="width: 100%" @click="regisiter" :loading="logining">注册</el-button>
       </el-form-item>
     </el-form>
 
@@ -50,12 +52,6 @@ export default {
   data() {
     return {
       logining: false,
-      picture:[
-        {url:require("../assets/logo.png")},
-        {url:require("../assets/img.png")},
-        {url:require("../assets/logo.png")},
-        {url:require("../assets/logo.png")}
-      ],
       ruleForm2: {
         username: "admin",
         password: "123456",
@@ -75,6 +71,9 @@ export default {
     };
   },
   methods: {
+    regisiter(){
+      this.$router.push({path: '/regisiter'});
+    },
     handleSubmit(){
       this.$refs.ruleForm2.validate((valid) => {
         if(valid){
@@ -100,10 +99,22 @@ export default {
 </script>
 
 <style scoped>
+
+
+
 .login-container {
-  width: 100%;
+  padding: 0px;
+  background-size: 100%;
   height: 100%;
+  width: 100%;
+  position:fixed;
+  margin-top: -60px;/*上边距*/
+  margin-left: 0px;/*左边距*/
+  background: url("../assets/img.png") no-repeat;
+  background-size: cover;
+
 }
+
 .login-page {
   -webkit-border-radius: 5px;
   border-radius: 5px;

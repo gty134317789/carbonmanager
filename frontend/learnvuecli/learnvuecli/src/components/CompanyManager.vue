@@ -13,12 +13,12 @@
       </el-table-column>
       <el-table-column
         prop="companyManager"
-        label="公司管理员"
+        label="企业管理员"
         width="150">
       </el-table-column>
       <el-table-column
         prop="companyAddress"
-        label="公司地址"
+        label="企业地址"
         width="200">
       </el-table-column>
       <el-table-column
@@ -75,7 +75,7 @@ export default {
   name: "CompanyManage",
   created() {
     const _this = this
-    axios.get('http://localhost:8181/company/list/1/'+this.pageSize).then(function (resp) {
+    axios.get('http://42.192.207.238:8181/company/list/1/'+this.pageSize).then(function (resp) {
       console.log(resp.data)
       _this.tableData = resp.data.data
       _this.total = resp.data.total
@@ -93,7 +93,7 @@ export default {
   methods:{
     page(currentPage){
       const _this = this
-      axios.get('http://localhost:8181/company/list/'+currentPage+'/'+this.pageSize).then(function (resp) {
+      axios.get('http://42.192.207.238:8181/company/list/'+currentPage+'/'+this.pageSize).then(function (resp) {
         _this.tableData = resp.data.data
         _this.total = resp.data.total
       })
@@ -110,7 +110,7 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        axios.delete('http://localhost:8181/company/delete/'+rows.companyCode).then(function (resp) {
+        axios.delete('http://42.192.207.238:8181/company/delete/'+rows.companyCode).then(function (resp) {
           if(resp.data){
             _this.$alert('【'+rows.companyCode+'】已删除', '', {
               confirmButtonText: '确定',

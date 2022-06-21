@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/carbonmanagerdata
+    url: jdbc:mysql://42.192.207.238:3306/carbonmanagerdata
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -10,3 +10,4 @@ mybatis-plus:
   mapper-locations: classpath:com/gty/mapper/xml/*.xml
 server:
   port: 8181
+

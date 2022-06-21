@@ -69,7 +69,7 @@ export default {
       let _this = this
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          axios.post('http://localhost:8181/manager/save',_this.ruleForm).then(function (resp) {
+          axios.post('http://42.192.207.238:8181/manager/save',_this.ruleForm).then(function (resp) {
             console.log(resp.data)
             if(resp.data){
               _this.$alert('【'+_this.ruleForm.managername+'】添加成功', '', {

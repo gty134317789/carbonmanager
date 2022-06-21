@@ -11,7 +11,7 @@
         methods: {
             drawLine(){
                 const _this = this
-                axios.get('http://localhost:8181/product/bar').then(function (resp) {
+                axios.get('http://42.192.207.238:8181/product/bar').then(function (resp) {
                     // 基于准备好的dom，初始化echarts实例
                     let myChart = _this.$echarts.init(document.getElementById('myChart'))
                     // 绘制图表

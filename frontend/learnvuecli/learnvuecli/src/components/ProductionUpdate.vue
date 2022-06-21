@@ -118,7 +118,7 @@ export default {
   },
   created() {
       let _this=this
-      axios.get('http://localhost:8181/production/findById/'+this.$route.query.id).then(function (resp){
+      axios.get('http://42.192.207.238:8181/production/findById/'+this.$route.query.id).then(function (resp){
           console.log(resp.data)
           _this.ruleForm=resp.data
           console.log(_this.ruleForm)
@@ -131,7 +131,7 @@ export default {
       console.log(_this.ruleForm)
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          axios.put('http://localhost:8181/production/update',_this.ruleForm).then(function (resp) {
+          axios.put('http://42.192.207.238:8181/production/update',_this.ruleForm).then(function (resp) {
             console.log(resp.data)
             if(resp.data){
               _this.$alert('【'+_this.ruleForm.productNum+'】更新成功', '', {
@@ -141,6 +141,13 @@ export default {
                 }
               });
             }
+            else{
+              _this.$alert('公司未注册，请重新更改', '', {
+              confirmButtonText: '确定',
+              callback: action => {
+                _this.$router.push('/productmanager')
+              }
+            });}
           })
         }
       });
