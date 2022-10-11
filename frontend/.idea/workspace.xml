@@ -45,6 +45,7 @@
     &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\WebStorm\\WebStorm 2022.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -100,6 +101,17 @@
       <workItem from="1655795528144" duration="272000" />
       <workItem from="1655799656851" duration="1502000" />
       <workItem from="1655802072969" duration="662000" />
+      <workItem from="1655863808898" duration="2711000" />
+      <workItem from="1655868689966" duration="8440000" />
+      <workItem from="1655908532369" duration="2379000" />
+      <workItem from="1655961116292" duration="1916000" />
+      <workItem from="1655965407505" duration="1323000" />
+      <workItem from="1656049263544" duration="3211000" />
+      <workItem from="1656293864283" duration="762000" />
+      <workItem from="1656311581801" duration="1658000" />
+      <workItem from="1656317303785" duration="1265000" />
+      <workItem from="1656376804733" duration="3339000" />
+      <workItem from="1656396977010" duration="2254000" />
     </task>
     <servers />
   </component>
